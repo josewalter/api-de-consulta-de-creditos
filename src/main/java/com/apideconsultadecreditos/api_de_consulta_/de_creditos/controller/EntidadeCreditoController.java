@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-
 @RestController
 @RequestMapping
 @CrossOrigin(origins = "4200")
@@ -30,19 +29,19 @@ public class EntidadeCreditoController {
 
     @GetMapping("/api/creditos/{numeroNfse}")
     public ResponseEntity<Object> getNumeroNfseController(@PathVariable(value = "numeroNfse") String numeroNfse ) {
-        Optional<EntidadeCredito> stateOptional = entidadeCreditoService.getNumeroNfse(numeroNfse);
-        if(stateOptional.isEmpty()){
+        Optional<EntidadeCredito> entidadeCreditoOptional = entidadeCreditoService.getNumeroNfse(numeroNfse);
+        if(entidadeCreditoOptional.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("numeroNfse não encontrada, verifique os dados e tente novamente!");
         }
-        return ResponseEntity.status(HttpStatus.OK).body(stateOptional.get());
+        return ResponseEntity.status(HttpStatus.OK).body(entidadeCreditoOptional.get());
     }
 
-    @GetMapping("/api/creditos/credito/{numeroCredito")
+    @GetMapping("/api/creditos/credito/{numeroCredito}")
     public ResponseEntity<Object> getNumeroCreditoController(@PathVariable(value = "numeroCredito") String numeroCredito ) {
-        Optional<EntidadeCredito> stateOptional = entidadeCreditoService.getNumeroNfse(numeroCredito);
-        if(stateOptional.isEmpty()){
+        Optional<EntidadeCredito> entidadeCreditoOptional = entidadeCreditoService.getNumeroCredito(numeroCredito);
+        if(entidadeCreditoOptional.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("numeroCredito não encontrada, verifique os dados e tente novamente!");
         }
-        return ResponseEntity.status(HttpStatus.OK).body(stateOptional.get());
+        return ResponseEntity.status(HttpStatus.OK).body(entidadeCreditoOptional.get());
     }
 }
