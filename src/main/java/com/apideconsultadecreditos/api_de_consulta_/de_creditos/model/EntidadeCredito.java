@@ -28,10 +28,10 @@ public class EntidadeCredito {
     @Column(name = "numero_nfse", length = 50, nullable = false)
     private String numeroNfse;
 
-    @Column(name = "data_construcao", length = 10, nullable = false)
+    @Column(name = "data_constituicao", nullable = false)
     private LocalDate dataConstituicao;
 
-    @Column(name = "valor_issgn", precision = 10, scale = 2, nullable = false)
+    @Column(name = "valor_issgn", precision = 15, scale = 2, nullable = false)
     private BigDecimal valorIssqn;
 
     @Column(name = "tipo_credito", length = 50, nullable = false)
@@ -40,15 +40,15 @@ public class EntidadeCredito {
     @Column(name = "simples_nacional", length = 5, nullable = false)
     private boolean simplesNacional;
 
-    @Column(name = "aliquota", length = 3, nullable = false)
+    @Column(name = "aliquota", length = 5, scale = 2, nullable = false)
     private BigDecimal aliquota;
 
-    @Column(name = "valor_faturado", precision = 10, scale = 2, nullable = false)
+    @Column(name = "valor_faturado", precision = 15, scale = 2, nullable = false)
     private BigDecimal valorFaturado;
 
-    @Column(name = "valor_deducao", precision = 10, scale = 2, nullable = false)
+    @Column(name = "valor_deducao", precision = 15, scale = 2, nullable = false)
     private BigDecimal valorDeducao;
 
-    @Column(name = "base_calculo", precision = 10, scale = 2, nullable = false)
+    @Column(name = "base_calculo", precision = 15, scale = 2, nullable = false)
     private BigDecimal baseCalculo;
 }
