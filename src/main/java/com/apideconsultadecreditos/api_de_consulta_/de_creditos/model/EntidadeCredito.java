@@ -31,7 +31,7 @@ public class EntidadeCredito {
     @Column(name = "data_constituicao", nullable = false)
     private LocalDate dataConstituicao;
 
-    @Column(name = "valor_issgn", precision = 15, scale = 2, nullable = false)
+    @Column(name = "valor_issqn", precision = 15, scale = 2, nullable = false)
     private BigDecimal valorIssqn;
 
     @Column(name = "tipo_credito", length = 50, nullable = false)
@@ -40,7 +40,7 @@ public class EntidadeCredito {
     @Column(name = "simples_nacional", length = 5, nullable = false)
     private boolean simplesNacional;
 
-    @Column(name = "aliquota", length = 5, scale = 2, nullable = false)
+    @Column(name = "aliquota", precision = 5, scale = 2, nullable = false)
     private BigDecimal aliquota;
 
     @Column(name = "valor_faturado", precision = 15, scale = 2, nullable = false)
