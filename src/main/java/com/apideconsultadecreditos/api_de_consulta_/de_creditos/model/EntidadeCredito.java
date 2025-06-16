@@ -37,7 +37,7 @@ public class EntidadeCredito {
     @Column(name = "tipo_credito", length = 50, nullable = false)
     private String tipoCredito;
 
-    @Column(name = "simples_nacional", length = 5, nullable = false)
+    @Column(name = "simples_nacional", nullable = false)
     private boolean simplesNacional;
 
     @Column(name = "aliquota", precision = 5, scale = 2, nullable = false)
