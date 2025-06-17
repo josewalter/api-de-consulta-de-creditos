@@ -20,6 +20,6 @@ public class EntidadeCreditoRepositoryTest {
     @Test
     @DisplayName("Caso de sucesso da busca do NumeroNfse")
     public void findByNumeroNfseTestSucess(){
-
+        System.out.println("findByNumeroNfseTestSucess");
     }
 }
