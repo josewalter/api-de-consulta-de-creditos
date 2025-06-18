@@ -51,4 +51,5 @@ public class EntidadeCredito {
 
     @Column(name = "base_calculo", precision = 15, scale = 2, nullable = false)
     private BigDecimal baseCalculo;
+
 }
