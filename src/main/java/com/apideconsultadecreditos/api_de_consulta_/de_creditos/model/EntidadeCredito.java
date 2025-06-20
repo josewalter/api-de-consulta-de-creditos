@@ -1,18 +1,17 @@
 package com.apideconsultadecreditos.api_de_consulta_.de_creditos.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Data
+@Getter
+@Setter
 @Entity
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 @Table(name = "tb_credito")
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class EntidadeCredito {
@@ -52,4 +51,10 @@ public class EntidadeCredito {
     @Column(name = "base_calculo", precision = 15, scale = 2, nullable = false)
     private BigDecimal baseCalculo;
 
+
+
+    //    public EntidadeCredito(int id, String numeroCredito, String numeroNfse, String dataConstituicao, BigDecimal valorIssqn,
+//                           String tipoCredito, boolean simplesNacional, BigDecimal aliquota, BigDecimal valorFaturado,
+//                           BigDecimal valorDeducao, BigDecimal baseCalculo) {
+//    }
 }
