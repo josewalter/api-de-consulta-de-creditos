@@ -1,23 +1,23 @@
 version: '3.1'
 
 services:
-
   db:
-    image: mysql:8.0.39
+    image: postgres:10.17-alpine
     volumes:
-      - dbbase:/var/lib/mysql
+      - pg-data:/var/lib/postgresql/data
     ports:
-      - "3307:3307"
+      - "5432:5432"
     environment:
-      MYSQL_ROOT_PASSWORD: 12345
-      MYSQL_DATABASE: db_essia
-
+      - "POSTGRES_USER=postgres"
+      - "POSTGRES_PASSWORD=admin"
+      - "POSTGRES_DB=postgres"
   phpmyadmin:
     image: phpmyadmin
     ports:
       - 8000:80
-
+    volumes:
+      - pg-data:/var/lib/postgresql/data
 volumes:
-  dbbase:
+  pg-data:
 
 
