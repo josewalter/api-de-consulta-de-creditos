@@ -13,17 +13,17 @@ public class EntidadeCreditoService {
     @Autowired
     private EntidadeCreditoRepository entidadeCreditoRepository;
 
-    public EntidadeCredito salvarEntidadeCredito(EntidadeCredito entidadeCredito){
-        if(entidadeCredito != null){
-            entidadeCreditoRepository.save(entidadeCredito);
-            System.out.println("A entidade " + entidadeCredito + ", foi salva com sucesso!!");
-
-        }else{
-            System.out.println("Essa entidade de crédito já existe!!!");
-
-        }
-        return entidadeCredito;
-    }
+//    public EntidadeCredito salvarEntidadeCredito(EntidadeCredito entidadeCredito){
+//        if(entidadeCredito != null){
+//            entidadeCreditoRepository.save(entidadeCredito);
+//            System.out.println("A entidade " + entidadeCredito + ", foi salva com sucesso!!");
+//
+//        }else{
+//            System.out.println("Essa entidade de crédito já existe!!!");
+//
+//        }
+//        return entidadeCredito;
+//    }
 
     public Optional<EntidadeCredito> getNumeroNfse(String NumeroNfse){
 

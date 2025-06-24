@@ -1,4 +1,5 @@
 ##	API-DE-CONSULTA-DE-CRÉDITOS
+
 # 1° Passo:
   OBS: Para rodar a API localmente, faça um clone do projeto, instele o Postgres Versão: 17.5 na sua maquina ou crie 
   um container Docker das duas formas funciona adicione as  regras de usuário senha e siga as intruções de instalação
@@ -22,5 +23,6 @@
 
 # 5° Passo:  
   Endpoint para rodar os testes eu estou usando o Postman para testar.
-  Buscar por numeroCredito: http://localhost:8080/api/creditos/credito/123456
-  Buscar por numeroNfse:    http://localhost:8080/api/creditos/1122334  
+  Buscar por numeroCredito: GET http://localhost:8080/api/creditos/credito/123456
+  Buscar por numeroNfse: GET  http://localhost:8080/api/creditos/1122334  
+  
