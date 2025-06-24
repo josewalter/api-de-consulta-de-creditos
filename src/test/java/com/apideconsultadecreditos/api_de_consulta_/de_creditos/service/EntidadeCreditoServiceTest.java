@@ -7,9 +7,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -18,7 +23,7 @@ import java.util.Optional;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 
-@ExtendWith(MockitoExtension.class)
+@ExtendWith(SpringExtension.class)
 public class EntidadeCreditoServiceTest {
 
     @Mock
@@ -29,17 +34,12 @@ public class EntidadeCreditoServiceTest {
 
     @BeforeEach
     public  void setUp(){
-//          EntidadeCredito entidadeCredito = new EntidadeCredito(1, "123456", "7891011", "2024-02-25", 1500.75,
-//                                                               "ISSQN", "Sim", 5.0, 30000.00, 5000.00,
-//                                                               25000.00);
-//        lenient().when(entidadeCreditoRepository.findByNumeroCredito("123456")).thenReturn(Optional.of(entidadeCredito));
-//        lenient().when(entidadeCreditoRepository.findByNumeroNfse("123456")).thenReturn(Optional.of(entidadeCredito));
 
     }
 
     @Test
-    @DisplayName("Deve retornar o número do crédito que o cliente tem no sistema.")
-    public  void deveRetornarNumeroCreditoSucess(String numeroCredito){
+    @DisplayName("Deve retornar sucesso quando buscar o número do crédito que o cliente tem no sistema.")
+    public  void deveRetornarSucesso_QuandoBuscarNumeroCredito(String numeroCredito){
 
         EntidadeCredito entidadeCredito = new EntidadeCredito();
         entidadeCredito.setNumeroCredito("123456");
@@ -55,16 +55,15 @@ public class EntidadeCreditoServiceTest {
 
         when(entidadeCreditoRepository.findByNumeroCredito(String.valueOf(anyLong()))).thenReturn(Optional.of(entidadeCredito));
 
-        Optional<EntidadeCredito> exiteEntidade = entidadeCreditoService.getNumeroCredito("123456");
+        Optional<EntidadeCredito> existeEntidade = entidadeCreditoService.getNumeroCredito("123456");
 
-        Assertions.assertNotNull(exiteEntidade);
-        Assertions.assertEquals("123456", exiteEntidade.isPresent());
-
+        Assertions.assertNotNull(existeEntidade);
+        Assertions.assertEquals("123456", existeEntidade.isPresent());
     }
 
     @Test
     @DisplayName("Deve lançar uma exceção para numeroCredito.")
-    public  void deveLancarExceptionNumeroCredito(){
+    public  void deveLancarExcecaoNumeroCredito(){
 
         EntidadeCredito entidadeCredito = new EntidadeCredito();
         entidadeCredito.setNumeroCredito("123456");
@@ -80,7 +79,7 @@ public class EntidadeCreditoServiceTest {
 
         when(entidadeCreditoRepository.findByNumeroCredito(String.valueOf(anyLong()))).thenReturn(Optional.of(entidadeCredito));
 
-        Assertions.assertThrows(RuntimeException.class, this::deveLancarExceptionNumeroCredito);
+        Assertions.assertThrows(RuntimeException.class, this::deveLancarExcecaoNumeroCredito);
         entidadeCreditoService.getNumeroCredito("999999");
     }
 
@@ -106,12 +105,11 @@ public class EntidadeCreditoServiceTest {
 
         Assertions.assertNotNull(exiteEntidade);
         Assertions.assertEquals("7891011", exiteEntidade.isPresent());
-
     }
 
     @Test
     @DisplayName("Deve lançar uma exceção para NumeroNfse.")
-    public  void deveLancarExceptionNumeroNfse(){
+    public  void deveLancarExcecaoNumeroNfse(){
 
         EntidadeCredito entidadeCredito = new EntidadeCredito();
         entidadeCredito.setNumeroCredito("123456");
@@ -127,7 +125,7 @@ public class EntidadeCreditoServiceTest {
 
         when(entidadeCreditoRepository.findByNumeroNfse(String.valueOf(anyLong()))).thenReturn(Optional.of(entidadeCredito));
 
-        Assertions.assertThrows(RuntimeException.class, this::deveLancarExceptionNumeroNfse);
+        Assertions.assertThrows(RuntimeException.class, this::deveLancarExcecaoNumeroNfse);
         entidadeCreditoService.getNumeroNfse("999999");
     }
 }

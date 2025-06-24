@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public record EntidadeCreditoRecordDto(@NotBlank String numeroCredito, @NotBlank String numeroNfse,
+public record EntidadeCreditoRecordDto(@NotNull String numeroCredito, @NotNull String numeroNfse,
                                        @NotBlank LocalDate dataConstituicao, @NotNull BigDecimal valorIssqn,
                                        @NotBlank String tipoCredito, @NotBlank boolean simplesNacional,
                                        @NotNull BigDecimal aliquota, @NotNull BigDecimal valorFaturado,
